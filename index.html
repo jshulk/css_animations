@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Css animations</title>
+	<style type="text/css">
+	
+		@keyframes slide-in {
+			from {
+				left: -100px;
+			}
+			70% {
+				left: 20px;
+			}
+			to {
+				left: 10px;
+			}
+		}
+
+		@keyframes slide-out {
+			from {
+				left: 10px;
+			}
+			
+			to {
+				left: -100px;
+			}
+		}
+
+
+		.box {
+			background: blue;
+			width: 100px;
+			position: absolute;
+			top: 50px;
+			height : 100px;
+			left: -100px;
+		}
+		.box-open {
+			animation: slide-in .3s forwards;
+		}
+
+		.box-closed {
+			animation: slide-out .3s forwards;
+		}
+
+		/*.box:hover {
+			background: red;
+			width: 200px;
+			height: 200px;
+		}*/
+
+	</style>
+</head>
+<body>
+	<a href="#" id ="show-box" >Show Box</a>
+	<div class="box" id = "dialog-box">
+		
+	</div>
+	<script type="text/javascript">
+	document.getElementById("show-box").addEventListener("click", function(e){
+		e.preventDefault();
+		var boxEl = document.getElementById("dialog-box");
+		if( boxEl.classList.contains("box-open")){
+			boxEl.classList.remove("box-open");
+			boxEl.classList.add('box-closed');
+		} else  {
+			boxEl.classList.remove('box-closed');
+			boxEl.classList.add('box-open');
+		}
+	});
+	</script>
+</body>
+</html>
